@@ -17,7 +17,7 @@ export class ApiService {
   public getAllSocks<Sock>() {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
-      'Basic ' + btoa('default@sock.nl:default'));
+      'Basic ' + btoa('default@sock.nl:password'));
     return this.httpClient.get<Sock>('http://localhost:8080/api/socks/',
       {headers: headers});
   }
