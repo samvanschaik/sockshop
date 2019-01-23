@@ -1,0 +1,21 @@
+<form class="text-center border border-light p-5" [formGroup]="form">
+  <div class="form-group">
+    <p class="h4 mb-4">Enter Attributes</p>
+    <p><i>Be sure to enter all fields.</i></p>
+
+    <label for="socknamefield">Name MUST be unique.</label>
+    <input type="text" class="form-control mb-4" placeholder="Sock Name" formControlName="sock_name" id="socknamefield" required>
+
+    <input type="text" class="form-control mb-4" placeholder="Sock Size" formControlName="sock_size" required>
+
+    <input type="text" class="form-control mb-4" placeholder="Sock Color" formControlName="sock_color" required>
+
+    <input type="number" class="form-control mb-4" placeholder="Sock Price (In cents)" formControlName="sock_price" required>
+
+    <input type="number" class="form-control mb-4" placeholder="Sock Amount Stocked" formControlName="sock_amount_stocked" required>
+
+    <input type="text" class="form-control mb-4" placeholder="Sock Image (URL)" formControlName="sock_url" required>
+
+    <button mdbBtn color="brown" block="true" class="my-4" type="submit" (click)="onSubmit()" [disabled]="form.invalid"> Create Sock</button>
+  </div>
+</form>

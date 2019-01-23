@@ -1,0 +1,76 @@
+<section>
+  <h4> List of socks. <a mdbBtn color="brown" mdbWavesEffect style="float: right" (click)="creationModal.show()">Add</a></h4>
+  <p><i>Click an item to modify.</i></p>
+
+  <table mdbTable hover="true">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th># Stocked</th>
+      <th>Image URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let sock of socks" (click)="selectSock(sock); modal.show()" >
+      <td>{{sock.sock_name}}</td>
+      <td>{{sock.sock_size}}</td>
+      <td>{{sock.sock_color}}</td>
+      <td>${{sock.sock_price/ 10}}</td>
+      <td>{{sock.sock_amount_stocked}}</td>
+      <td>{{sock.sock_url}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div mdbModal #modal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document" *ngIf="activeSock != null">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel"><b>Editing Sock: {{activeSock.sock_name}}</b></h4>
+        </div>
+        <div class="modal-body" style="align-self: center">
+          <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="modal.hide(); modifyModal.show()" mdbWavesEffect>Modify</button>
+          <button type="button" mdbBtn color="red" class="relative waves-light" (click)="deleteSock(activeSock); modal.hide()" mdbWavesEffect>Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div mdbModal #modifyModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document" *ngIf="activeSock != null">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modifyModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="modifyModal"><b>Modifying Sock: {{activeSock.sock_name}}</b></h4>
+        </div>
+        <div class="modal-body" style="align-self: center">
+          <app-sock-modify [sock_name]="activeSock.sock_name" [newSock]="activeSock"></app-sock-modify>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div mdbModal #creationModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="creationModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="creationModal"><b>Creating Sock.</b></h4>
+        </div>
+        <div class="modal-body" style="align-self: center">
+          <app-sock-creation [newSock]="socks[0]" [existingSocks]="socks"></app-sock-creation>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<form class="text-center border border-light p-5" [formGroup]="form">
+  <div class="form-group">
+    <p class="h4 mb-4">Change Attributes</p>
+    <p><i>Fields left empty will remain the same.</i></p>
+    <input type="text" class="form-control mb-4" value="{{user.user_name}}" formControlName="user_name" required >
+    <input type="text" class="form-control mb-4" value="{{user.user_postcode}}" formControlName="user_postcode" required>
+    <input type="text" class="form-control mb-4" value="{{user.user_streetnumber}}" formControlName="user_streetnumber" required>
+    <input type="email" class="form-control mb-4" value="{{user.user_email}}" formControlName="user_email" email required>
+    <input type="password" class="form-control mb-4" value="{{user.user_password}}" formControlName="user_password" required >
+    <input type="text" class="form-control mb-4" value="{{user.user_roles}}" formControlName="user_roles" required>
+    <button mdbBtn color="brown" block="true" class="my-4" type="submit" [disabled]="!form.valid" (click)="onSubmit()">Update User</button>
+    <p *ngIf="updateStatus == 'success'" style="color: green">Update Complete!<br> Refresh page to view results.</p>
+    <p *ngIf="updateStatus == 'failed'" style="color: red">Update Failed!</p>
+  </div>
+</form>

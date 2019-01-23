@@ -1,0 +1,34 @@
+<section *ngIf="socks">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button mdbBtn type="button" color="brown" class="waves-light" >Order now! (${{getPriceTotal()}})</button>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button mdbBtn type="button" color="brown" class="waves-light" mdbWavesEffect  (click)="emptyCart()">Empty cart</button>
+    </div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Item #</th>
+      <th scope="col">Name</th>
+      <th scope="col">Size</th>
+      <th scope="col">Price</th>
+      <th scope="col" style="float:right">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let sock of socks; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{sock.sock_name}}</td>
+      <td>{{sock.sock_size}}</td>
+      <td>${{sock.sock_price / 10}}</td>
+      <td><a type="button" class="btn-floating" style="float:right" (click)="removeFromCart(i)">🗑️</a></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+<section *ngIf="!socks">
+  <p>There are no items in your cart. Go back to the <a routerLink="/socks" style="text-decoration: underline">shop</a></p>
+</section>

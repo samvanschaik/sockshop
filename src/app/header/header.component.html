@@ -1,0 +1,37 @@
+<header class="h-100">
+  <mdb-navbar SideClass="navbar fixed-top navbar-light navbar-expand-lg navbar brown scrolling-navbar intro-fixed-nav" [containerInside]="false">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand" routerLink="/welcome"><img src="https://i.ibb.co/D7Hwt48/logo.png" height="30"></a>
+    </mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav mr-auto" >
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/socks">Shop<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/cart">Cart</a>
+        </li>
+        <li class="nav-item waves-light" style="float:right" mdbWavesEffect>
+          <a class="nav-link" routerLink="/user" *ngIf="userService.isLoggedIn">User</a>
+        </li>
+        <li class="nav-item waves-light" style="float:right" mdbWavesEffect>
+          <a class="nav-link" routerLink="/login" *ngIf="!userService.isLoggedIn">Log-in</a>
+        </li>
+        <li class="nav-item waves-light" style="float:right" mdbWavesEffect>
+          <a class="nav-link" routerLink="/register" *ngIf="!userService.isLoggedIn">Register</a>
+        </li>
+      </ul>
+
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form my-0">
+        </div>
+      </form>
+    </links>
+  </mdb-navbar>
+
+</header>
+<!--Main Layout-->
+
+
+
+<!--Main Layout-->

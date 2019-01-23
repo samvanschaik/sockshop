@@ -1,0 +1,21 @@
+section {
+  margin: 80px 10px 10px;
+  align-self: center
+;
+}
+
+.card {
+  width: 200px;
+  display: inline-grid;
+  margin: 2px
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    align-self: center;
+    width: 45%;
+    display: inline-list-item;
+    margin: 20px 5px;
+  }
+}
+

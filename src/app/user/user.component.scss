@@ -1,0 +1,16 @@
+section {
+  align-self: center;
+  margin: 80px 10px 10px;
+}
+
+button {
+  float:right
+}
+
+@media (min-width: 1281px) {
+  section {
+    margin: 80px auto;
+    align-self: center;
+    max-width: 30%;
+  }
+}

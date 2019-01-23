@@ -1,0 +1,44 @@
+<section *ngIf="loaded" class="animated fadeIn">
+  <!--<div class="card-deck" *ngIf="loaded">-->
+    <!--<mdb-card *ngFor="let sock of socks" [sock]= "sock" style="width: 200px;">-->
+      <!--<div class="view overlay waves-light" mdbWavesEffect>-->
+        <!--<mdb-card-img src={{sock.sock_url}} alt="Card image cap"></mdb-card-img>-->
+        <!--<a>-->
+          <!--<div class="mask rgba-white-slight"></div>-->
+        <!--</a>-->
+      <!--</div>-->
+
+      <!--<mdb-card-body>-->
+        <!--<mdb-card-title>-->
+          <!--<h4>{{sock.sock_name}}</h4>-->
+        <!--</mdb-card-title>-->
+
+        <!--<mdb-card-text>-->
+          <!--Color: {{sock.sock_color}}-->
+          <!--<br>Size: {{sock.sock_size}}-->
+          <!--<br>Stocked: {{sock.sock_amount_stocked}}-->
+        <!--</mdb-card-text>-->
+        <!--<button mdbBtn type="button" color="brown" (click)="onBuy(sock)" mdbWavesEffect>Buy ${{sock.sock_price / 10 }}</button>-->
+      <!--</mdb-card-body>-->
+    <!--</mdb-card>-->
+  <!--</div>-->
+
+  <div class="card" *ngFor="let sock of socks" [sock]= "sock">
+    <img class="card-img-top" src="{{sock.sock_url}}" alt="Card image cap">
+    <div class="card-body">
+
+      <h4 class="card-title"><a>{{sock.sock_name}}</a></h4>
+      <p class="card-text"><b>Size: </b>{{sock.sock_size}}</p>
+      <p class="card-text"><b>Color: </b>{{sock.sock_color}}</p>
+      <p class="card-text"><b>Stocked: </b>{{sock.sock_amount_stocked}}</p>
+      <button mdbBtn type="button" color="brown" (click)="onBuy(sock)" mdbWavesEffect>Buy ${{sock.sock_price / 10 }}</button>
+    </div>
+  </div>
+
+</section>
+
+<footer *ngIf="successFooter" class="page-footer font-small green">
+  <div class="footer-copyright text-center py-3">
+    <a href=""> Item bought!</a>
+  </div>
+</footer>

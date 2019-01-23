@@ -1,0 +1,58 @@
+<section>
+  <h4> List of socks. <a mdbBtn color="brown" mdbWavesEffect style="float: right">Add</a></h4>
+  <p><i>Click an item to modify.</i></p>
+
+  <table mdbTable hover="true">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Postcode</th>
+      <th>Street number</th>
+      <th>E-mail</th>
+      <th>Roles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let user of users" (click)="selectUser(user); modal.show()" >
+      <td>{{user.user_name}}</td>
+      <td>{{user.user_postcode}}</td>
+      <td>{{user.user_streetnumber}}</td>
+      <td>{{user.user_email}}</td>
+      <td>{{user.user_roles}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div mdbModal #modal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document" *ngIf="activeUser != null">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel"><b>Editing User: {{activeUser.user_name}}</b></h4>
+        </div>
+        <div class="modal-body" style="align-self: center">
+          <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="modal.hide(); modifyModal.show()" mdbWavesEffect>Modify</button>
+          <button type="button" mdbBtn color="red" class="relative waves-light" (click)="deleteUser(activeUser); modal.hide()" mdbWavesEffect>Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div mdbModal #modifyModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document" *ngIf="activeUser != null">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modifyModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="modifyModal"><b>Modifying User: {{activeUser.user_name}}</b></h4>
+        </div>
+        <div class="modal-body" style="align-self: center">
+          <app-user-modify [user_email]="activeUser.user_email" [user]="activeUser"></app-user-modify>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

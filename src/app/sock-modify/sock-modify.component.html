@@ -1,0 +1,15 @@
+<form class="text-center border border-light p-5" [formGroup]="form">
+  <div class="form-group">
+    <p class="h4 mb-4">Change Attributes</p>
+    <p><i>Fields left empty will remain the same.</i></p>
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_name}}" formControlName="sock_name">
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_size}}" formControlName="sock_size">
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_color}}" formControlName="sock_color">
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_price / 100}}" formControlName="sock_price">
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_amount_stocked}}" formControlName="sock_amount_stocked">
+    <input type="text" class="form-control mb-4" value="{{newSock.sock_url}}" formControlName="sock_url">
+    <button mdbBtn color="brown" block="true" class="my-4" type="submit" [disabled]="!form.valid" (click)="onSubmit()">Update Sock</button>
+    <p *ngIf="updateStatus == 'success'" style="color: green">Update Complete! - Refresh page to view results.</p>
+    <p *ngIf="updateStatus == 'failed'" style="color: red">Update Failed!</p>
+  </div>
+</form>
