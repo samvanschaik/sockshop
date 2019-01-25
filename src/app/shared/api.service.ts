@@ -14,11 +14,13 @@ export class ApiService {
 
   }
 
+  private url = 'https://07aec57e.ngrok.io/api';
+
   public getAllSocks<Sock>() {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa('default@sock.nl:password'));
-    return this.httpClient.get<Sock>('http://localhost:8080/api/socks/',
+    return this.httpClient.get<Sock>(this.url + 'api/socks/',
       {headers: headers});
   }
 
