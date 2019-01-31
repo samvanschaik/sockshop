@@ -20,7 +20,7 @@ export class ApiService {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa('default@sock.nl:password'));
-    return this.httpClient.get<Sock>('https://b2b44654.ngrok.io' + 'socks/',
+    return this.httpClient.get<Sock>(this.url + 'socks/',
       {headers: headers});
   }
 
