@@ -14,7 +14,7 @@ export class ApiService {
 
   }
 
-  private url = 'https://b2b44654.ngrok.io';
+  private url = 'https://493b8245.ngrok.io/api/';
 
   public getAllSocks() {
     let headers = new HttpHeaders();
