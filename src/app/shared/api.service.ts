@@ -14,9 +14,9 @@ export class ApiService {
 
   }
 
-  private url = 'https://07aec57e.ngrok.io/api/';
+  private url = 'https://b2b44654.ngrok.io';
 
-  public getAllSocks<Sock>() {
+  public getAllSocks() {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa('default@sock.nl:password'));
@@ -30,17 +30,16 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.put<Sock>('http://localhost:8080/api/socks/' + sock_name, sock,
+    return this.httpClient.put<Sock>(this.url + sock_name, sock,
       {headers: headers});
   }
-
 
   public deleteSock(sock: Sock) {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.delete<Sock>('http://localhost:8080/api/socks/' + sock.sock_name,
+    return this.httpClient.delete<Sock>(this.url + sock.sock_name,
       {headers: headers});
   }
 
@@ -49,7 +48,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.post<Sock>('http://localhost:8080/api/socks/', sock,
+    return this.httpClient.post<Sock>(this.url, sock,
       {headers: headers});
   }
 
@@ -58,16 +57,16 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.post<Sock>('http://localhost:8080/api/users/', user,
+    return this.httpClient.post<Sock>(this.url, user,
       {headers: headers});
   }
 
-  public getAllUsers<User>() {
+  public getAllUsers() {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.get<User>('http://localhost:8080/api/users/',
+    return this.httpClient.get<User>(this.url,
       {headers: headers});
   }
 
@@ -76,7 +75,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.delete<Sock>('http://localhost:8080/api/users/' + user.user_email,
+    return this.httpClient.delete<Sock>(this.url + user.user_email,
       {headers: headers});
   }
 
@@ -85,7 +84,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.put<Sock>('http://localhost:8080/api/users/' + user_email, user,
+    return this.httpClient.put<Sock>(this.url + user_email, user,
       {headers: headers});
   }
 }
