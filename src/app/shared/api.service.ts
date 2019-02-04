@@ -57,7 +57,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.post<Sock>(this.url + 'users', user,
+    return this.httpClient.post<User>(this.url + 'users', user,
       {headers: headers});
   }
 
@@ -75,7 +75,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.delete<Sock>(this.url + 'users' + user.user_email,
+    return this.httpClient.delete<User>(this.url + 'users' + user.user_email,
       {headers: headers});
   }
 
@@ -84,7 +84,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.put<Sock>(this.url + 'users' + user_email, user,
+    return this.httpClient.put<User>(this.url + 'users' + user_email, user,
       {headers: headers});
   }
 }

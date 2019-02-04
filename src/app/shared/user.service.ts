@@ -81,7 +81,7 @@ export class UserService {
     // TODO This was written at 3 AM - Probably want to do this in a different way.
     if (JSON.parse(localStorage.getItem('activeuser')) !== null) {
       const user: User = JSON.parse(localStorage.getItem('activeuser'));
-      if (user.user_roles.includes('ADMIN')) {
+      if (user.user_roles != null && user.user_roles.includes('ADMIN')) {
         this.isAdmin = true;
       } else {
         this.isAdmin = false;

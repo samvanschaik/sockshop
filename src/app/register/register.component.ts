@@ -45,8 +45,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(user: User) {
-    this.userService.handleLogIn(user, user.user_password);
     this.router.navigateByUrl('/socks');
+    this.userService.handleLogIn(user, user.user_password);
   }
 
   onSubmit() {
