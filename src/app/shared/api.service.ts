@@ -66,7 +66,7 @@ export class ApiService {
     headers = headers.append('Authorization',
       'Basic ' + btoa(this.userService.getAuthorizationString()));
 
-    return this.httpClient.get<User>(this.url,
+    return this.httpClient.get<User>(this.url + 'users',
       {headers: headers});
   }
 
