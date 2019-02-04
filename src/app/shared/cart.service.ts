@@ -19,13 +19,12 @@ export class CartService {
     this.socks.push(sock);
     localStorage.setItem('cart', JSON.stringify(this.socks));
     this.sockSubject.next(sock);
-    console.log('Added ' + sock.sock_name + ' to local storage.');
   }
 
   emptyCart() {
     localStorage.removeItem('cart');
+    this.socks = [];
     this.sockSubject.next('Cart emptied.');
-    console.log('Removed all items from local storage.');
   }
 
   removeFromCart(id: Number) {
@@ -34,6 +33,5 @@ export class CartService {
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(temp));
     this.sockSubject.next('Removed an item.')
-    console.log('Removed item ' + id + ' from local storage.');
   }
 }
