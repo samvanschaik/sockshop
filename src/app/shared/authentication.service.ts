@@ -11,7 +11,7 @@ export class AuthenticationService {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization',
       'Basic ' + btoa(email + ':' + password));
-    return this.httpClient.get<User>('http://localhost:8080/api/auth/login', {headers: headers});
+    return this.httpClient.get<User>('https://493b8245.ngrok.io/api/auth/login', {headers: headers});
   }
 
   public hasRole(){}
