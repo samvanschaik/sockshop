@@ -32,6 +32,8 @@ export class CartService {
     temp.splice(id, 1);
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(temp));
-    this.sockSubject.next('Removed an item.')
+
+    this.socks = temp;
+    this.sockSubject.next('Removed an item.');
   }
 }
