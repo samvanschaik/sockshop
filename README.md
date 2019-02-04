@@ -7,7 +7,8 @@ Student Account:
 	wachtwoord: adminstudent
 	
 Back-End URI's:
-	GET     /api/ (nl.hsleiden.resource.DefaultResource)
+
+  	GET     /api/ (nl.hsleiden.resource.DefaultResource)
     GET     /api/auth/login (nl.hsleiden.resource.AuthenticationResource)
     GET     /api/socks (nl.hsleiden.resource.SockResource)
     POST    /api/socks (nl.hsleiden.resource.SockResource)
@@ -22,6 +23,7 @@ Back-End URI's:
     GET     /api/users/{id} (nl.hsleiden.resource.UserResource)
 	
 Front-End URL's:
+
 	https://samvanschaik.github.io/sockshop/welcome
 	https://samvanschaik.github.io/sockshop/socks
 	https://samvanschaik.github.io/sockshop/cart
